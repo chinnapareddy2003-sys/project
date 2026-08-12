@@ -1,0 +1,526 @@
+  #include<stdio.h>
+   void mainMenu();
+   void subMenu();
+   int Check_Prime(int *);
+   int Check_Perfect(int *);
+   int Check_Strong(int *);
+  int Check_Armstrong(int *);
+   int Check_Palindrome(int *);
+   void primeRange(int,int);
+  void perfectRange(int,int);
+  void strongRange(int,int);
+  void armstrongRange(int,int);
+  void palindromeRange(int,int);
+  int primeCount(int*,int*);
+  int perfectCount(int*,int*);
+  int strongCount(int*,int*);
+  int armstrongCount(int*,int*);
+  int palindromeCount(int*,int*);
+  //Main function Template
+  //---------------------------->
+  int main(){
+          int choice,subChoice;
+          int num,start,end,c;
+          while(1){
+                  mainMenu();
+                  printf("Enter Choice : ");
+                  scanf("%d",&choice);
+                 switch(choice)
+                  {
+                          case 1: // Prime
+                                  subMenu();
+                                  scanf("%d",&subChoice);
+                                  switch(subChoice)
+                                  {
+                                          case 1:
+                                                  printf("Enter Number : ");
+                                                  scanf("%d",&num);
+                                                  if(Check_Prime( &num))
+                                                          printf("Prime Number");
+                                                  else
+                                                          printf("Not Prime");
+                                                  break;
+                                          case 2:
+ printf("Enter Start End     : ");
+                                                  scanf("%d%d",&start,&end);
+                                                  primeRange(start,end);
+                                                  break;
+                                          case 3:
+                                                  printf("Enter Start End: ");
+                                                  scanf("%d%d",&start,&end);
+                                                  c=primeCount(&start, &end);
+                                                  printf("prime count=%d",c);
+                                                  break;
+
+ case 4:
+                                                  break;
+                                          default:
+                                                  printf("Invalid");
+                                  }
+                                  break;
+                          case 2:
+  
+                                  subMenu();
+                                  scanf("%d",&subChoice);
+                                  switch(subChoice)
+                                  {
+                                          case 1:
+                                                  printf("Enter Number :");
+                                                  scanf("%d",&num);
+                                                  if(Check_Perfect( &num))
+                                                          printf("Perfect Number");
+                                                  else
+                                                          printf("Not Perfect");
+                                                  break;
+                                          case 2:
+                                                  printf("Enter Start End: ");
+                                                  scanf("%d%d",&start,&end);
+                                                  perfectRange(start,end)    ;
+                                                  break;
+                                          case 3:
+                                                  printf("Enter Start End: ");
+ scanf("%d%d",&start,&en    d);
+                                                  c=perfectCount(&start,&end);
+                                                  printf("perfect count=%d",c);
+                                                  break;
+                                          case 4:
+                                                  break;
+                                          default:
+                                                  printf("Invalid");
+                                  }
+  
+                                  // Perfect Number Menu
+                                  break;
+                          case 3:
+                                  // Strong Number Menu
+  
+                                  subMenu();
+                                  scanf("%d",&subChoice);
+                                  switch(subChoice)
+                                  {
+                                         case 1:
+                                                 printf("Enter Number :");
+                                                 scanf("%d",&num);
+                                                 if(Check_Strong( &num))
+                                                         printf("strong Number");
+                                                 else
+                                                         printf("Not strong");
+                                                 break;
+                                         case 2:
+                                                 printf("Enter Start End: ");
+                                                 scanf("%d%d",&start,&end);
+
+ strongRange(start,end);
+                                                 break;
+                                         case 3:
+                                                 printf("Enter Start End: ");
+                                                 scanf("%d%d",&start,&end);
+                                                 c=strongCount(&start, &end);
+                                                 printf("strong count=%d",c);
+                                                 break;
+                                         case 4:
+                                                 break;
+                                         default:
+                                                 printf("Invalid");
+                                 }
+                                 break;
+                         case 4:
+                                 // Armstrong Number Menu
+ 
+                                 subMenu();
+                                 scanf("%d",&subChoice);
+                                 switch(subChoice)
+                                 {
+                                         case 1:
+                                                 printf("Enter Number :");
+                                                 scanf("%d",&num);
+                                                 if(Check_Armstrong( &num))
+                                                         printf("armstrong Number");
+                                                 else
+                                                         printf("Not armstrong");
+                                                 break;
+                                         case 2:
+    printf("Enter Start End     : ");
+                                                 scanf("%d%d",&start,&end);
+                                                 armstrongRange(start,end);
+                                                 break;
+                                         case 3:
+                                                 printf("Enter Start End: ");
+                                                 scanf("%d%d",&start,&end);
+                                                 c=armstrongCount(&start, &end);
+                                                 printf("armstrong count=%d",c);
+                                                 break;
+                                         case 4:
+                                                 break;
+                                         default:
+                                                 printf("Invalid");
+                                 }
+                                 break;
+                         case 5:
+                                 // Palindrome Menu
+ 
+                                 subMenu();
+                                 scanf("%d",&subChoice);
+                                 switch(subChoice)
+                                 {
+                                         case 1:
+                                                 printf("Enter Number :");
+                                                 scanf("%d",&num);
+                                                 if(Check_Palindrome( &num))
+                                                         printf("palindrome Number");
+                                                 else
+                                                         printf("Not palindrome");
+
+      break;
+                                         case 2:
+                                                printf("Enter Start End : ");
+                                                 scanf("%d%d",&start,&end);
+                                                 palindromeRange(start,end);
+                                                 break;
+                                         case 3:
+                                                 printf("Enter Start End : ");
+                                                 scanf("%d%d",&start,&end);
+                                                 c=palindromeCount(&start, &end);
+                                                 printf("palindrome count=%d",c);
+                                                 break;
+                                 }
+                         case 6:
+                                 printf("Thank You");
+                                 break;
+                         default:
+                                 printf("Invalid Choice");
+                 }
+                 break;
+         }
+ }
+ 
+ //Main Menu Function
+ //--------------------------->
+ void mainMenu(void)
+ {
+         printf("\n");
+         printf("=== Number Analyzer =======\n");
+         printf("1. Prime Number\n");
+         printf("2. Perfect Number\n");
+         printf("3. Strong Number\n");
+         printf("4. Armstrong Number\n");
+         printf("5. Palindrome Number\n");
+         printf("6. Exit\n");
+         printf("=========================\n");
+ }
+ //Sub Menu Function
+ //------------------------>
+ void subMenu(void)
+ {
+         printf("1. Check Number\n");
+         printf("2. Check Range\n");
+        printf("3. Count \n");
+         printf("4. Back\n");
+         printf("-------------------------\n");
+ }
+ //Prime Function
+ //----------------->
+ int Check_Prime (int *p )
+ {
+         int i;
+         for(i=2;i<*p;i++)
+         {
+                 if(!(*p%i))
+                         break;
+         }
+         if(*p==i)
+                 return 1;
+         else
+                 return 0;
+ 
+         // return 1 if prime
+         // return 0 otherwise
+ }
+ //The remaining functions follow the same pattern:
+ //Range Function
+ //------------------->
+ void primeRange(int n1 ,int n2 ){
+         int i,j;
+         for(i=n1;i<=n2;i++)
+         {
+                 for(j=2;j<i;j++)
+                 {
+                         if(!(i%j))
+                                 break;
+                 }
+                 if(i==j)
+                         printf("prime number%d\n",i);
+                 // print prime number
+         }
+ }
+ int primeCount(int *p ,int *q){
+         int c=0,i,j;
+          int n1=*p,n2=*q;
+         for(i=n1;i<n2;i++)
+         {
+                 for(j=2;j<i;j++)
+                 {
+                         if(!(i%j))
+                                 break;
+                 }
+                 if(i==j)
+                         c++;
+         }
+ return c;
+ }
+ 
+ int Check_Perfect (int *p )
+ {
+         int i,add=0;
+         for(i=1;i<*p;i++)
+         {
+                 if(!(*p%i))
+                         add+=i;
+         }
+         if(*p==add)
+                 return 1;
+         else
+                 return 0;
+ }
+ void perfectRange(int n1,int n2)
+ {
+         int i,add,j;
+         for(i=n1;i<=n2;i++)
+         {
+                 add=0;
+                 for(j=1;j<i;j++)
+                 {
+                         if(!(i%j))
+                                 add+=j;
+                 }
+                 if(i==add)
+                         printf("perfect number%d\n",i);
+         }
+ }
+ int perfectCount(int *p,int *q)
+ {
+         int i,add,c=0,j;
+         int n1=*p,n2=*q;
+         for(i=n1;i<=n2;i++)
+         {
+                 add=0;
+                 for(j=1;j<i;j++)
+                 {
+                         if(!(i%j))
+                                 add+=j;
+                 }
+                 if(i==add)
+                         c++;
+         }
+         return c;
+ }
+ int Check_Strong(int *p)
+ {
+         int i,temp,r,sum,fact;
+         temp=*p;
+         sum=0;
+         while(temp>0)
+         {
+                 r=temp%10;
+                 fact=1;
+                 for(i=1;i<=r;i++)
+                 {
+                         fact=fact*i;
+                 }
+                 sum=sum+fact;
+                 temp=temp/10;
+         }
+         if(sum==*p)
+                 return 1;
+         else
+                 return 0;
+ }
+ void strongRange(int n1,int n2)
+ {
+         int i,temp,r,sum,fact,j;
+         for(i=n1;i<=n2;i++)
+         {
+                 temp=i;
+                 sum=0;
+                 while(temp>0)
+                 {
+                         r=temp%10;
+                         fact=1;
+                         for(j=1;j<=r;j++)
+                         {
+                                 fact=fact*j;
+                         }
+                         sum=sum+fact;
+                         temp=temp/10;
+                 }
+                 if(sum==i)
+                         printf("strong number%d\n",i);
+         }
+ }
+ int strongCount(int *p,int *q)
+ {
+         int i,temp,r,sum,fact,c=0,j;
+         int n1=*p,n2=*q;
+ for(i=n1;i<=n2;i++)
+         {
+                 temp=i;
+                 sum=0;
+                 while(temp>0)
+                 {
+                         r=temp%10;
+                         fact=1;
+                         for(j=1;j<=r;j++)
+                         {
+                                 fact=fact*j;
+                         }
+                         sum=sum+fact;
+                         temp=temp/10;
+                 }
+                 if(sum==i)
+                         c++;
+         }
+         return c;
+ }
+ 
+ int Check_Armstrong(int *p)
+ {
+         int i,temp1,temp2,power,r,sum,c;
+         temp1=*p;
+         temp2=*p;
+         sum=0;
+         c=0;
+         while(temp1)
+         {
+                 temp1/=10;
+                 c++;
+         }
+         for(;temp2;temp2/=10)
+         {
+                 r=temp2%10;
+                 power=1;
+                 for(i=1;i<=c;i++)
+                 {
+                         power*=r;
+                 }
+                 sum+=power;
+         }
+         if(sum==*p)
+                 return 1;
+         else
+                 return 0;
+ }
+
+ void armstrongRange(int n1,int n2)
+ {
+         int i,j,temp1,temp2,r,sum,power,c;
+         for(i=n1;i<=n2;i++)
+         {
+                 sum=0;
+                 c=0;
+                 temp1=i;
+                 temp2=i;
+                 while(temp1)
+                 {
+                         temp1/=10;
+                         c++;
+                 }
+                 for(;temp2;temp2/=10)
+                {
+                         r=temp2%10;
+                         power=1;
+                         for(j=1;j<=c;j++)
+                         {
+                                 power*=r;
+                         }
+                         sum+=power;
+                 }
+                 if(sum==i)
+                         printf("amstrong number%d\n",i);
+         }
+ }
+ 
+ int armstrongCount(int *p,int *q)
+ {
+         int i,temp1,temp2,power,r,sum,c,c1=0,j;
+         int n1=*p,n2=*q;
+         for(i=n1;i<=n2;i++)
+         {
+                 sum=0;
+                 c=0;
+                temp1=i;
+                 temp2=i;
+                 while(temp1)
+                 {
+                         temp1/=10;
+                         c++;
+                 }
+                }
+                 for(;temp2;temp2/=10)
+                 {
+                         r=temp2%10;
+                         power=1;
+                         for(j=1;j<=c;j++)
+                        {
+                                 power*=r;
+                         }
+                         sum+=power;
+                 }
+                 if(sum==i)
+                         c1++;
+        }
+         return c1;
+ }
+ int Check_Palindrome(int *p)
+ {
+         int rev,r,temp;
+         temp=*p;
+         rev=0;
+         while(temp)
+         {
+                 r=temp%10;
+                 rev=rev*10+r;
+                 temp=temp/10;
+         }
+         if(*p==rev)
+                 return 1;
+         else
+                 return 0;
+ }
+ void palindromeRange(int n1, int n2)
+ {
+         int rev,r,temp,i;
+         for(i=n1;i<=n2;i++)
+         {
+                 temp=i;
+                 rev=0;
+                 while(temp)
+                 {
+                         r=temp%10;
+                         rev=rev*10+r;
+                         temp=temp/10;
+                 }
+                 if(i==rev)
+                         printf("palindrome%d\n",i);
+         }
+ }
+ int palindromeCount(int *p,int *q)
+ {
+         int rev,r,temp,i,c=0;
+         int n1=*p,n2=*q;
+         for(i=n1;i<=n2;i++)
+         {
+                 temp=i;
+                rev=0;
+                 while(temp)
+                 {
+                         r=temp%10;
+                         rev=rev*10+r;
+                         temp=temp/10;
+                }
+                if(i==rev)
+                         c++;
+        }
+         return c;
+ }
+
+
